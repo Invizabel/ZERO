@@ -6,3 +6,4 @@ for (let key in storage)
     file.write(key + "\n");
     delay(5000);
 }
+file.close()
