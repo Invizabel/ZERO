@@ -1,3 +1,8 @@
+let chaff = "";
+for (let i = 0; i <= 1024; i++)
+{
+    chaff += "0"; 
+}
 let storage = require("storage");
 let free = storage.fsInfo("/ext")["freeSpace"];
 print("CREATING CHAFF");
@@ -6,7 +11,7 @@ while (true)
 {
     if (free > 1)
     {
-        file.write("0");
+        file.write(chaff);
     }
     else
     {
