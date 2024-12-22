@@ -4,6 +4,10 @@ for (let i = 0; i <= 1024; i++)
     mal += "0";
 }
 let storage = require("storage");
+if (storage.fileExists("/ext/CHAFF"))
+{
+    storage.remove("/ext/CHAFF");
+}
 let free = storage.fsInfo("/ext")["freeSpace"];
 print("CREATING CHAFF");
 let file = storage.openFile("/ext/CHAFF", "w", "create_always");
