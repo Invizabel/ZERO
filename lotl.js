@@ -16,10 +16,23 @@ function any(data)
     {
         if (data[i])
         {
-            return true
+            return true;
         }
     }
     return false;
+}
+
+function chain(data)
+{
+    let hits = [];
+    for (let i = 0; i < data.length; i++)
+    {
+        for (let j = 0; j < data[i].length; j++)
+        {
+            hits.push(data[i][j]);
+        }
+    }
+    return hits;
 }
 
 function mean(data)
@@ -32,9 +45,7 @@ function mean(data)
     return hits / data.length;
 }
 
-print(any([false,false,true]));
-print(any([false,false,false]));
-print(all([false,false,true]));
-print(all([false,false,false]));
-print(all([true,true,true]));
-print(mean([1,2,3]));
+// Examples
+print(any(chain([[true,false,false],[false,false,false]]))); // true
+print(all(chain([[true,false,false],[false,false,false]]))); // false
+print(mean([1,2,3])); // 2
