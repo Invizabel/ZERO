@@ -47,5 +47,5 @@ function mean(data)
 
 // Examples
 print(any(chain([[true,false,false],[false,false,false]]))); // true
-print(all(chain([[true,false,false],[false,false,false]]))); // false
-print(mean([1,2,3])); // 2
+print(all(chain([[true,true,true],[false,false,false]]))); // false
+print(mean(chain([[1,2,3],[4,5,6]]))); // 3.5
