@@ -35,6 +35,21 @@ function chain(data)
     return hits;
 }
 
+function flatten_array(data)
+{
+    while (true)
+    {
+        if (typeof data[0] === "array")
+        {
+            data = chain(data);
+        }
+        else
+        {
+            return data;
+        }
+    }   
+}
+
 function mean(data)
 {
     let hits = 0;
@@ -46,6 +61,6 @@ function mean(data)
 }
 
 // Examples
-print(any(chain([[true,false,false],[false,false,false]]))); // true
-print(all(chain([[true,true,true],[false,false,false]]))); // false
-print(mean(chain([[1,2,3],[4,5,6]]))); // 3.5
+print(any(flatten_array([[[true],[false],[false]],[[false],[false],[false]]]))); // true
+print(all(flatten_array([[[true],[true],[true]],[[false],[false],[false]]]))); // false
+print(mean(flatten_array([[[1],[2],[3]],[[4],[5],[6]]]))); // 3.5
