@@ -62,5 +62,7 @@ function mean(data)
 
 // Examples
 print(any(flatten_array([[[true],[false],[false]],[[false],[false],[false]]]))); // true
+print(any(flatten_array([[[false],[false],[false]],[[false],[false],[false]]]))); // false
+print(all(flatten_array([[[true],[true],[true]],[[true],[true],[true]]]))); // true
 print(all(flatten_array([[[true],[true],[true]],[[false],[false],[false]]]))); // false
 print(mean(flatten_array([[[1],[2],[3]],[[4],[5],[6]]]))); // 3.5
