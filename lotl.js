@@ -54,12 +54,40 @@ function flatten_array(data)
 
 function mean(data)
 {
+    return sum(data) / data.length;
+}
+
+function split(data,value)
+{
+    let hits = "";
+    let results = [];
+    for (let i = 0; i < data.length; i++)
+    {
+        if (data[i] === value && hits !== "")
+        {
+            results.push(hits);
+            hits = "";
+        }
+        else
+        {
+            hits += data[i];
+        }
+    }
+    if (hits !== "")
+    {
+        results.push(hits);
+    }
+    return results;
+}
+
+function sum(data)
+{
     let hits = 0;
     for (let i = 0; i < data.length; i++)
     {
         hits += data[i];
     }
-    return hits / data.length;
+    return hits;
 }
 
 function varint(data)
@@ -79,10 +107,8 @@ function varint(data)
 }
 
 // Examples
-print(any(flatten_array([[[true],[false],[false]],[[false],[false],[false]]]))); // true
-print(any(flatten_array([[[false],[false],[false]],[[false],[false],[false]]]))); // false
-print(all(flatten_array([[[true],[true],[true]],[[true],[true],[true]]]))); // true
-print(all(flatten_array([[[true],[true],[true]],[[false],[false],[false]]]))); // false
+print(any(flatten_array([[[false],[false],[false]],[[false],[true],[false]]]))); // true
+print(all(flatten_array([[[true],[true],[true]],[[true],[true],[false]]]))); // false
 print(mean(flatten_array([[[1],[2],[3]],[[4],[5],[6]]]))); // 3.5
-print(varint(735)); // "df5"
-print(varint(770)); // "825"
+print("{" + split("bb{1:2}","{")[1]); // {1:2}
+print(varint(770)); // "826"
