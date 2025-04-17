@@ -52,37 +52,9 @@ function flatten_array(data)
     }   
 }
 
-function hex(data)
-{
-    return ("0x" + data.toString(16)).slice(-2);;
-}
-
 function mean(data)
 {
     return sum(data) / data.length;
-}
-
-function split(data,value)
-{
-    let hits = "";
-    let results = [];
-    for (let i = 0; i < data.length; i++)
-    {
-        if (data[i] === value && hits !== "")
-        {
-            results.push(hits);
-            hits = "";
-        }
-        else
-        {
-            hits += data[i];
-        }
-    }
-    if (hits !== "")
-    {
-        results.push(hits);
-    }
-    return results;
 }
 
 function sum(data)
@@ -98,6 +70,4 @@ function sum(data)
 // Examples
 print(any(flatten_array([[[false],[false],[false]],[[false],[true],[false]]]))); // true
 print(all(flatten_array([[[true],[true],[true]],[[true],[true],[false]]]))); // false
-print(hex(770)); // 0x302
 print(mean(flatten_array([[[1],[2],[3]],[[4],[5],[6]]]))); // 3.5
-print("{" + split("bb{1:2}{{aca","{")[1]); // {1:2}
