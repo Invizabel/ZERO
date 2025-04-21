@@ -64,6 +64,25 @@ function project(x,y,z,focal)
     return [screen_x, screen_y];
 }
 
+function radians(data)
+{
+    return data * (Math.PI / 180);
+}
+
+function rotate_camera(data,axis,angle)
+{
+    let hits = [];
+    let theta = radians(angle);
+    if (axis === "x")
+    {
+        for (let i = 0; i < data.length; i++)
+        {
+            hits.push([data[i][0],(Math.cos(theta)*data[i][1]-Math.sin(theta)*data[i][2]),(Math.sin(theta)*data[i][1]+Math.cos(theta)*data[i][2])]);
+        }
+        return hits;
+    }
+}
+
 function sum(data)
 {
     let hits = 0;
@@ -73,3 +92,7 @@ function sum(data)
     }
     return hits;
 }
+
+print(rotate_camera([[1,1,1]],"x",90)[0][0]);
+print(rotate_camera([[1,1,1]],"x",90)[0][1]);
+print(rotate_camera([[1,1,1]],"x",90)[0][2]);
