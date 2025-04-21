@@ -4,7 +4,7 @@ for (let key in storage)
 {
     print(key);
     file.write(key + "\n");
-    delay(2500);
+    delay(1000);
 }
 file.close()
 print("API STATS WRITTEN TO SD CARD!")
