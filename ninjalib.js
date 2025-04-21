@@ -1,4 +1,4 @@
-let math = require("math");
+let Math = require("math");
 
 function all(data)
 {
@@ -57,6 +57,13 @@ function mean(data)
     return sum(data) / data.length;
 }
 
+function project(x,y,z,focal)
+{
+    let screen_x = Math.floor(focal * (x / z));
+    let screen_y = Math.floor(focal * (y / z));
+    return [screen_x, screen_y];
+}
+
 function sum(data)
 {
     let hits = 0;
@@ -66,8 +73,3 @@ function sum(data)
     }
     return hits;
 }
-
-// Examples
-print(any(flatten_array([[[false],[false],[false]],[[false],[true],[false]]]))); // true
-print(all(flatten_array([[[true],[true],[true]],[[true],[true],[false]]]))); // false
-print(mean(flatten_array([[[1],[2],[3]],[[4],[5],[6]]]))); // 3.5
