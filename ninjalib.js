@@ -81,6 +81,22 @@ function rotate_camera(data,axis,angle)
         }
         return hits;
     }
+    if (axis === "y")
+    {
+        for (let i = 0; i < data.length; i++)
+        {
+            hits.push([Math.cos(theta)*data[i][0]+Math.sin(theta)*data[i][2],data[i][1],-Math.sin(theta)*data[i][0]+Math.cos(theta)*data[i][2]]);
+        }
+        return hits;
+    }
+    if (axis === "z")
+    {
+        for (let i = 0; i < data.length; i++)
+        {
+            hits.push([Math.cos(theta)*data[i][0]-Math.sin(theta)*data[i][1],Math.sin(theta)*data[i][0]+Math.cos(theta)*data[i][1],data[i][2]]);
+        }
+        return hits;
+    }
 }
 
 function sum(data)
@@ -92,7 +108,3 @@ function sum(data)
     }
     return hits;
 }
-
-print(rotate_camera([[1,1,1]],"x",90)[0][0]);
-print(rotate_camera([[1,1,1]],"x",90)[0][1]);
-print(rotate_camera([[1,1,1]],"x",90)[0][2]);
