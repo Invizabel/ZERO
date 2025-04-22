@@ -9,8 +9,8 @@ function generate_passsword(n)
 {
     let lowercase = "abcdefghijklmnopqrstuvwxyz";
     let uppercase = lowercase.toUpperCase();
-    let digits = "0123456789012345678901234567890123456789";
-    let special = "!@#$%^&*()!@#$%^&*()!@#$%^&*()!@#$%^&*()";
+    let digits = "012345678901234567890123456789";
+    let special = "!@#$%^&*()!@#$%^&*()!@#$%^&*()";
     let characters = lowercase + uppercase + digits + special;
     let results = "";
     for (let i = 0; i < n; i++)
