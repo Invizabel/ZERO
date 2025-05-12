@@ -114,6 +114,37 @@ function rotate_camera(data,axis,angle)
     return hits;
 }
 
+function sha1(message)
+{
+    let h0 = 0x67452301;
+    let h1 = 0xEFCDAB89;
+    let h2 = 0x98BADCFE;
+    let h3 = 0x10325476;
+    let h4 = 0xC3D2E1F0;
+
+    let new_message = "";
+    
+    for (let i = 0; i < message.length; i++)
+    {
+        new_message += "0" + message.charCodeAt(i).toString(2);
+    }
+    new_message += "1";
+
+    let pad = (new_message.length - 1).toString(2);
+    let pad_message = new_message;
+
+    while (pad_message.length % 512 !== 448)
+    {
+        pad_message += "0";
+    }
+    let message_length = pad;
+    while (message_length.length < 64)
+    {
+        message_length = "0" + message_length;
+    }
+    pad_message += message_length;
+}
+
 function sum(data)
 {
     let hits = 0;
@@ -123,3 +154,6 @@ function sum(data)
     }
     return hits;
 }
+
+let abc = sha1("abc");
+//print(abc);
